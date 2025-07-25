@@ -1,0 +1,431 @@
+/* General Styles */
+body {
+  --column-gap: 40px; /* Define a CSS variable for column gap */
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans KR', sans-serif; /* Pretendard added */
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+  color: #343a40;
+  line-height: 1.6;
+}
+.container {
+  max-width: 960px; /* Restore max-width */
+  margin: 0 auto; /* Center content */
+  padding: 20px; /* Keep padding */
+}
+h1, h2, h3 {
+  font-weight: 600;
+  color: #212529;
+}
+
+/* Adjust h2 to match h1 style for consistency */
+h2 {
+  font-size: 3.8em; /* Match h1 font size */
+  font-weight: 800; /* Match h1 font weight */
+  margin-bottom: 10px;
+  color: #212529;
+  line-height: 1.1;
+  position: relative;
+  display: table;
+  margin: 0 auto 3rem; /* Match h1 margin */
+}
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+section {
+  padding: 80px 0; /* Increased padding for sections */
+  border-bottom: 1px solid #e9ecef;
+}
+section:nth-child(odd) {
+  background-color: #f8f9fa; /* Light background for odd sections */
+}
+section:nth-child(even) {
+  background-color: #ffffff; /* White background for even sections */
+}
+section:last-child {
+  border-bottom: none;
+}
+
+/* Header & Navigation */
+.header {
+  background: #e9ecef; /* Changed header background to a light gray */
+  padding: 15px 0;
+  border-bottom: 1px solid #e9ecef;
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* Ensure header is on top */
+}
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px; /* Reset padding for header container */
+}
+.logo {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+.logo a {
+  text-decoration: none;
+  color: #6c757d; /* Gray color for logo link */
+}
+.nav-menu a {
+  margin: 0 15px;
+  font-size: 1em;
+  font-weight: 500;
+  color: #6c757d; /* Gray color for nav links */
+}
+
+/* Masthead Section */
+.Masthead_masthead {
+  height: calc(100vh - 60px); /* Adjust height to account for header (approx 60px) */
+  /* margin-top: 60px; Removed to eliminate gap */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f2f5; /* Light gray background */
+  color: #212529;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.masthead-content {
+  z-index: 1;
+  padding: 20px;
+}
+
+.masthead-content .title {
+  font-size: 4.5em; /* Very large title */
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.masthead-content h2 {
+  font-size: 2em;
+  font-weight: 600;
+  margin-bottom: 40px;
+  color: #495057;
+}
+
+.masthead-content .button {
+  display: inline-block;
+  padding: 15px 35px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-size: 1.1em;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+}
+
+.masthead-content .button:hover {
+  background-color: #0056b3;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 123, 255, 0.3);
+}
+
+.masthead-content .button i {
+  margin-left: 10px;
+}
+
+/* Header & Navigation (Removed as per request) */
+/* .header { ... } */
+/* .header .container { ... } */
+/* .logo { ... } */
+/* .logo a { ... } */
+/* .nav-menu a { ... } */
+
+/* About Me Section */
+#about {
+  text-align: center;
+  padding: 120px 0; /* Increased vertical padding for more space */
+  background-color: #ffffff; /* Clean background */
+}
+#about h1 {
+  font-size: 3.8em; /* Very large heading */
+  font-weight: 800; /* Extra bold */
+  margin-bottom: 10px;
+  color: #212529;
+  line-height: 1.1;
+  position: relative;
+  display: table;
+  margin: 0 auto 3rem; /* Added margin for spacing */
+}
+#about .about-subtitle {
+  font-size: 1.8em; /* Subtitle size */
+  font-weight: 600; /* Semi-bold */
+  color: #495057;
+  margin-bottom: 30px;
+}
+#about p {
+  font-size: 1.1em; /* Standard paragraph text */
+  color: #6c757d;
+  max-width: 800px; /* Wider paragraph for more content */
+  margin: 0 auto 40px auto; /* Add bottom margin for button */
+}
+.cta-button {
+  display: inline-block;
+  padding: 15px 35px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 50px; /* Pill shape */
+  font-size: 1.1em;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+}
+.cta-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 123, 255, 0.3);
+}
+
+.about-info {
+  margin-top: 50px;
+  border-top: 1px solid #e9ecef;
+  padding-top: 30px;
+  display: flex; /* Changed to flex */
+  flex-wrap: wrap; /* Allow items to wrap to next line */
+  justify-content: space-between; /* Distribute items with space between */
+  row-gap: 1.5rem; /* Changed to 1.5rem as requested */
+  column-gap: var(--column-gap); /* Use CSS variable for column gap */
+}
+.about-info .info-item {
+  display: flex;
+  align-items: flex-start; /* Changed to align items to the top */
+  font-size: 1.1em;
+  color: #343a40;
+  flex: 0 0 calc((100% - (2 * var(--column-gap))) / 3); /* Calculate width for 3 items with gaps using CSS variable */
+  flex-grow: 0;
+  flex-shrink: 0;
+  box-sizing: border-box; /* Ensure consistent box model */
+}
+.about-info .info-item i {
+  font-size: 1.4em;
+  color: #000; /* Changed to black */
+  margin-right: 15px;
+  width: 30px; /* Fixed width for icon */
+  text-align: center;
+}
+.about-info .info-details {
+  display: flex;
+  flex-direction: column;
+  text-align: left; /* Align text to the left */
+}
+.about-info .info-label {
+  font-weight: bold;
+  color: #212529;
+  font-size: 0.85em; /* Reduced font size */
+  margin-bottom: 2px;
+  line-height: 1.2;
+}
+.about-info .info-value {
+  color: #495057;
+  font-size: 0.95em; /* Reduced font size */
+  line-height: 1.2;
+}
+
+/* Skills Section */
+#skills .skills-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+#skills .skill-item {
+  background-color: #e9ecef;
+  color: #343a40;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 1.1em;
+  font-weight: 500;
+}
+#skills .skill-item-java {
+  background-color: #007396;
+  color: #ffffff;
+}
+#skills .skill-item-javascript {
+  background-color: #F7DF1E;
+  color: #000000;
+}
+#skills .skill-item-mariadb {
+  background-color: #003545;
+  color: #ffffff;
+}
+#skills .skill-item-dart {
+  background-color: #0175C2;
+  color: #ffffff;
+}
+#skills .skill-item-python {
+  background-color: #3776AB;
+  color: #ffffff;
+}
+
+/* Projects Section */
+.project-list {
+  display: grid;
+  grid-template-columns: 1fr; /* Default to 1 column on small screens */
+  gap: 30px;
+  margin-top: 20px;
+}
+
+@media (min-width: 768px) { /* For screens wider than 768px */
+  .project-list {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  }
+}
+.project-card {
+  background-color: #fff;
+  border-radius: 12px; /* More rounded corners */
+  overflow: hidden; /* Ensures image corners match card */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08); /* Slightly more pronounced shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+.project-card:hover {
+  transform: translateY(-8px); /* More noticeable lift */
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+.project-card img {
+  width: 100%;
+  height: 200px; /* Fixed height for images */
+  object-fit: cover; /* Ensures image covers the area */
+  border-bottom: 1px solid #e9ecef;
+  background-color: #e0e0e0; /* Better placeholder background */
+}
+.project-card .content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.project-card h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #212529; /* Darker title color */
+  font-size: 1.3em;
+}
+.project-card p {
+  font-size: 0.95em;
+  color: #6c757d;
+  flex-grow: 1;
+  margin-bottom: 15px;
+}
+.project-card .project-description {
+  white-space: pre-wrap; /* Preserve whitespace and wrap lines */
+}
+.project-card .project-tags {
+  margin-top: 10px;
+  margin-bottom: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.project-card .project-tag {
+  background-color: #e9ecef;
+  color: #495057;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.85em;
+}
+.project-card .project-link {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px; /* Slightly more rounded button */
+  align-self: flex-start;
+  transition: background-color 0.2s, transform 0.2s;
+  font-weight: 500;
+  margin-top: auto; /* Pushes button to the bottom */
+}
+.project-card .project-link:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px); /* Subtle button lift on hover */
+  text-decoration: none;
+}
+
+/* Modal Styles */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1001; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+  padding-top: 0; /* Removed top padding */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 1% auto; /* Adjusted margin to increase vertical space */
+  padding: 20px 20px 10px 20px; /* Reduced bottom padding */
+  border: 1px solid #888;
+  width: 70%; /* Reduced width */
+  max-width: 700px; /* Reduced max-width */
+  border-radius: 8px;
+  position: relative;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  color: #343a40;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.readme-content {
+  background-color: #f4f4f4;
+  padding: 15px;
+  border-radius: 5px;
+  overflow-x: auto; /* Enable horizontal scroll for long lines */
+  white-space: pre-wrap; /* Preserve whitespace and wrap lines */
+  word-wrap: break-word; /* Break long words */
+  /* max-height: 60vh; Removed to allow full vertical expansion */
+  font-size: 1.2em; /* Increased font size significantly */
+  line-height: 1.6; /* Improved readability */
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans KR', sans-serif; /* Pretendard added */
+}
+.readme-content p.readme-description {
+  font-size: 0.8em; /* Further reduced font size */
+  line-height: 1.5;
+  margin-bottom: 1em; /* Add some spacing below paragraphs */
+}
+
+.close-button {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  right: 20px;
+  top: 10px;
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Contact Section */

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>나의 포트폴리오</title>
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container">
+      <div class="logo"><a href="#">HJU's portfolio</a></div>
+      <nav class="nav-menu">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+
+      </nav>
+    </div>
+  </header>
+
+  <div class="Masthead_masthead" id="masthead">
+    <div class="masthead-content">
+      <h1 class="title">-한지욱-<br>개발자 포트폴리오</h1>
+      <h2>Ai를 적극 활용하며, 개발과 QA영역 모두에서 성장하고 있는 예비 개발자 한지욱입니다.</h2>
+      <a href="#about" class="button">더 알아보기 <i class="fas fa-chevron-down"></i></a>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="container">
+      <h1>ABOUT ME</h1>
+      <!--<p class="about-subtitle">프론트엔드 개발자 한지욱입니다.</p>
+      <p>저는 사용자 경험을 최우선으로 생각하며, 새로운 기술을 배우고 적용하는 것을 즐기는 개발자입니다. 직관적이고 효율적인 인터페이스를 통해 사용자에게 최고의 가치를 제공하는 것을 목표로 합니다. 이 포트폴리오에서 저의 경험과 프로젝트를 확인해 보세요.</p>
+-->
+      <div class="about-info">
+        <div class="info-item">
+          <i class="fas fa-user-circle"></i>
+          <div class="info-details">
+            <div class="info-label">이름</div>
+            <div class="info-value">한지욱</div>
+          </div>
+        </div>
+        <div class="info-item">
+          <i class="fas fa-calendar-alt"></i>
+          <div class="info-details">
+            <div class="info-label">생년월일</div>
+            <div class="info-value">98.7.27</div>
+          </div>
+        </div>
+        <div class="info-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <div class="info-details">
+            <div class="info-label">위치</div>
+            <div class="info-value">대한민국 경기도</div>
+          </div>
+        </div>
+        <div class="info-item">
+          <i class="fas fa-phone"></i>
+          <div class="info-details">
+            <div class="info-label">연락처</div>
+            <div class="info-value">010-5049-4192</div>
+          </div>
+        </div>
+        <div class="info-item">
+          <i class="fas fa-envelope"></i>
+          <div class="info-details">
+            <div class="info-label">이메일</div>
+            <div class="info-value">wldnrrha98@naver.com</div>
+          </div>
+        </div>
+        <div class="info-item">
+          <i class="fas fa-graduation-cap"></i>
+          <div class="info-details">
+            <div class="info-label">학력</div>
+            <div class="info-value">성결대학교 미디어소프트웨어학과 졸업</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <section id="skills">
+      <div class="container">
+        <h2 style="text-align: center;">Skills</h2>
+        <ul class="skills-list">
+          <li class="skill-item skill-item-java">Java</li>
+          <li class="skill-item skill-item-javascript">JavaScript</li>
+          <li class="skill-item skill-item-mariadb">MariaDB</li>
+          <li class="skill-item skill-item-dart">Dart</li>
+          <li class="skill-item skill-item-python">Python</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <h2 style="text-align: center;">Projects</h2>
+        <div class="project-list" id="project-list">
+          <!-- Projects will be loaded here by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const projectListDiv = document.getElementById('project-list');
+
+      try {
+        const response = await fetch('/api/projects');
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const projects = await response.json();
+
+        if (projects.length === 0) {
+          projectListDiv.innerHTML = '<p style="text-align: center;">아직 등록된 프로젝트가 없습니다.</p>';
+          return;
+        }
+
+        projects.forEach(project => {
+          const projectCard = document.createElement('div');
+          projectCard.classList.add('project-card');
+
+          projectCard.innerHTML = `
+            <div class="content">
+              <h3>${project.title}</h3>
+              ${project.project_date ? `<p class="project-date">${project.project_date}</p>` : ''}
+              <p class="project-description">${project.description || '설명 없음'}</p>
+              <div class="project-tags">
+                ${project.tags ? project.tags.split(',').map(tag => `<span class="project-tag">${tag.trim()}</span>`).join('') : ''}
+              </div>
+              ${project.custom_readme_content ? `<a href="#" class="project-link readme-button" data-readme-content="${encodeURIComponent(project.custom_readme_content)}" data-project-link="${encodeURIComponent(project.link || '')}">README</a>` : ''}
+            </div>
+          `;
+          projectListDiv.appendChild(projectCard);
+        });
+
+        // Add event listeners for README buttons
+        document.querySelectorAll('.readme-button').forEach(button => {
+          button.addEventListener('click', (event) => {
+            event.preventDefault();
+            const readmeContent = decodeURIComponent(event.target.dataset.readmeContent);
+            // const projectLink = decodeURIComponent(event.target.dataset.projectLink); // Removed
+
+            let modalContentHtml = `<div id="readme-modal-content-text" class="readme-content">${readmeContent}</div>`;
+            document.querySelector('#readme-modal .modal-body').innerHTML = modalContentHtml;
+            document.getElementById('readme-modal').style.display = 'block';
+          });
+        });
+
+        // Close modal when close button or outside is clicked
+        document.querySelector('.close-button').addEventListener('click', () => {
+          document.getElementById('readme-modal').style.display = 'none';
+        });
+
+        window.addEventListener('click', (event) => {
+          const modal = document.getElementById('readme-modal');
+          if (event.target == modal) {
+            modal.style.display = 'none';
+          }
+        });
+
+      } catch (error) {
+        console.error('Error fetching projects:', error);
+        projectListDiv.innerHTML = '<p style="text-align: center;">프로젝트를 불러오는 데 실패했습니다. 서버를 확인해 주세요.</p>';
+      }
+    });
+  </script>
+
+  <!-- README Modal -->
+  <div id="readme-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <h2>Project README</h2>
+      <div class="modal-body"></div>
+    </div>
+  </div>
+</body>
+</html>
